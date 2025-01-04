@@ -1,14 +1,17 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import pluginJs from '@eslint/js'
+import pluginReact from 'eslint-plugin-react'
+import globals from 'globals'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
-const eslintConfig = [...compat.extends("next/core-web-vitals")];
-
-export default eslintConfig;
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  { ignores: ['dist'] },
+  {
+    files: ['**/*.{js,mjs,cjs,jsx}'],
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    },
+  },
+  { languageOptions: { globals: globals.browser } },
+  pluginJs.configs.recommended,
+  pluginReact.configs.flat.recommended,
+]
