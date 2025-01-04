@@ -7,11 +7,13 @@ export default [
   { ignores: ['dist'] },
   {
     files: ['**/*.{js,mjs,cjs,jsx}'],
-    rules: {
-      'react/react-in-jsx-scope': 'off',
-    },
   },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   pluginReact.configs.flat.recommended,
+  {
+    rules: {
+      'react/react-in-jsx-scope': 'off',
+    }
+  }
 ]

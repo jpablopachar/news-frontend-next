@@ -1,5 +1,3 @@
-/* eslint-disable react/react-in-jsx-scope */
-
 'use client'
 
 import { baseUrl } from '@/config/config'
