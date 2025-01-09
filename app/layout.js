@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import localFont from "next/font/local"
